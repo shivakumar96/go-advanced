@@ -1,3 +1,3 @@
-module github.com/shivakumar96/go-advanced
+module go-advanced
 
 go 1.20
