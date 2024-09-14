@@ -57,6 +57,8 @@ func main() {
 	/** channels **/
 	goroutines.PassNumberUsingChannel()
 
+	goroutines.PassNumberUsingBufferedChannel()
+
 	fmt.Println("----------------")
 
 }

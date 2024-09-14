@@ -39,3 +39,18 @@ func PassNumberUsingChannel() {
 	fmt.Println("------ ending channel -------")
 	wg.Wait()
 }
+
+func PassNumberUsingBufferedChannel() {
+	ch := make(chan int, 2)
+	wg := &sync.WaitGroup{}
+	fmt.Println("------ starting Buffered channel -------")
+	wg.Add(2)
+	go printnumber(ch, wg)
+	go printnumber2(ch, wg)
+	for i := 1; i <= 10; i++ {
+		ch <- i
+	}
+	close(ch) // channel has to be closed when using range operator
+	fmt.Println("------ ending Buffered channel -------")
+	wg.Wait()
+}
