@@ -54,6 +54,11 @@ All other goroutines will wait until the first goroutine completes the function 
 - Once the function has been executed, subsequent calls to Do will return immediately without executing the function again.
 
 
+## Go routine
+
+The go routine follows a fork-join thread model. The child (callee) thread runs independently from the parent (caller) thread and joins the parent later at some point in time when the child completes its execution. if the parent thread exits before the child joins, the child thread will be aborted.<br>
+
+Note: Go doesn't have an explicit join method. But it can be achieved using sync.WaitGroup methods
 
 ### References: 
 - https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15440-f11/go/doc/go_mem.html

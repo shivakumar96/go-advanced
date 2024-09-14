@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	designpatterns "go-advanced/design-patterns"
+	goroutines "go-advanced/explore-concurrency"
 )
 
 /**
@@ -41,6 +42,21 @@ func main() {
 
 	gmap4["str"] = 123
 	fmt.Println(gmap4)
+	fmt.Println("----------------")
+	/** Genrics End **/
 
-	/** Genrics **/
+	/** Go routines **/
+	//go routine
+	goroutines.Mainroutine()
+
+	//Anonymous function
+	goroutines.Anonymousroutine()
+
+	/** Go routines End **/
+	fmt.Println("----------------")
+	/** channels **/
+	goroutines.PassNumberUsingChannel()
+
+	fmt.Println("----------------")
+
 }
