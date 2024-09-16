@@ -4,6 +4,7 @@ import (
 	"fmt"
 	designpatterns "go-advanced/design-patterns"
 	goroutines "go-advanced/explore-concurrency"
+	customcontainer "go-advanced/explore-containers"
 )
 
 /**
@@ -60,5 +61,20 @@ func main() {
 	goroutines.PassNumberUsingBufferedChannel()
 
 	fmt.Println("----------------")
+
+	cache := customcontainer.NewLRUCache[int, int](5)
+	cache.Put(2, 3)
+	cache.Put(3, 4)
+	cache.PrintList()
+	cache.Put(3, 5)
+	cache.PrintList()
+	cache.Get(2)
+	cache.PrintList()
+	cache.Put(6, 9)
+	cache.Put(7, 8)
+	cache.Put(8, 16)
+	cache.PrintList()
+	cache.Put(9, 12)
+	cache.PrintList()
 
 }
