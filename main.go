@@ -5,6 +5,8 @@ import (
 	designpatterns "go-advanced/design-patterns"
 	goroutines "go-advanced/explore-concurrency"
 	customcontainer "go-advanced/explore-containers"
+	customsort "go-advanced/explore-sort"
+	"sort"
 )
 
 /**
@@ -78,14 +80,37 @@ func main() {
 	cache.PrintList()
 
 	/**
-	* Inheritance using struct embedding
+	* Inheritance and method overiding using struct embedding
 	 */
 
 	fmt.Println("----------------")
 
 	mduck := designpatterns.NewMallardDuck("duck-1", "quack quack")
 	mduck.Fly()
+	mduck.Bird.Sound()
 	mduck.Sound()
+	fmt.Println("----------------")
+	fmt.Println("----------------")
+	/*
+	* Custom Sort example
+	 */
+
+	tempS := customsort.NewDayWeatherSliceStruct(customsort.SortByDay, 5)
+	tempS.AddWeather(23.23, 32, "MONADAY")
+	tempS.AddWeather(20.00, 35, "WEDNESADY")
+	tempS.AddWeather(26.20, 21, "TUESDAY")
+	tempS.AddWeather(29.23, 36, "THURSDAY")
+	tempS.AddWeather(30.00, 32, "FRIDAY")
+	tempS.AddWeather(56.48, 31, "SATURDAY")
+	fmt.Println(tempS.DayWeatherSlice)
+	sort.Sort(tempS)
+	fmt.Println(tempS.DayWeatherSlice)
+	tempS.SortBy = customsort.SortByHumidity
+	sort.Sort(tempS)
+	fmt.Println(tempS.DayWeatherSlice)
+	tempS.SortBy = customsort.SortByTemperatue
+	sort.Sort(tempS)
+	fmt.Println(tempS.DayWeatherSlice)
 
 	fmt.Println("----------------")
 
