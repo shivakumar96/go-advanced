@@ -77,4 +77,16 @@ func main() {
 	cache.Put(9, 12)
 	cache.PrintList()
 
+	/**
+	* Inheritance using struct embedding
+	 */
+
+	fmt.Println("----------------")
+
+	mduck := designpatterns.NewMallardDuck("duck-1", "quack quack")
+	mduck.Fly()
+	mduck.Sound()
+
+	fmt.Println("----------------")
+
 }
