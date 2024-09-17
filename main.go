@@ -119,7 +119,7 @@ func main() {
 	* custom priority Queue // provides better abstraction
 	*
 	**/
-
+	// passing comparator
 	pq := customcontainer.NewPriorityQueue(5, func(ele1, ele2 customcontainer.PriorityElement) bool {
 		return ele1.Prioty.(int) < ele2.Prioty.(int)
 	})
