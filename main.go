@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/heap"
 	"fmt"
 	designpatterns "go-advanced/design-patterns"
 	goroutines "go-advanced/explore-concurrency"
@@ -113,5 +114,19 @@ func main() {
 	fmt.Println(tempS.DayWeatherSlice)
 
 	fmt.Println("----------------")
+
+	/**
+	* custom priority Queue // provides better abstraction
+	*
+	**/
+
+	pq := customcontainer.NewPriorityQueue(5, func(ele1, ele2 customcontainer.PriorityElement) bool {
+		return ele1.Prioty.(int) < ele2.Prioty.(int)
+	})
+
+	heap.Init(pq)
+	heap.Push(pq, customcontainer.PriorityElement{6, "value is 6"})
+	heap.Push(pq, customcontainer.PriorityElement{2, "value is 2"})
+	fmt.Println(pq.Queue)
 
 }

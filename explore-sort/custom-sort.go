@@ -1,6 +1,8 @@
 package customsort
 
-import "strings"
+import (
+	"strings"
+)
 
 const (
 	SortByHumidity   = iota
