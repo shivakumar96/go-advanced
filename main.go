@@ -6,6 +6,7 @@ import (
 	designpatterns "go-advanced/design-patterns"
 	goroutines "go-advanced/explore-concurrency"
 	customcontainer "go-advanced/explore-containers"
+	newfeatures "go-advanced/explore-go-1.23"
 	customsort "go-advanced/explore-sort"
 	"sort"
 )
@@ -128,5 +129,8 @@ func main() {
 	heap.Push(pq, customcontainer.PriorityElement{6, "value is 6"})
 	heap.Push(pq, customcontainer.PriorityElement{2, "value is 2"})
 	fmt.Println(pq.Queue)
+
+	fmt.Println("----------------")
+	newfeatures.NewRange()
 
 }
